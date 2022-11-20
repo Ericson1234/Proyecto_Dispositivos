@@ -51,7 +51,7 @@ class LugarDao {
         //Ahora... se modifica o crea el documento...
         documento.set(lugar)
             .addOnSuccessListener {
-                Log.d("saveLugar", "Lugar creado/actualizado"")
+                Log.d("saveLugar", "Lugar creado/actualizado")
             }
             .addOnCanceledListener {
                 Log.e("saveLugar", "Lugar NO creado/actualizado")
@@ -69,7 +69,7 @@ class LugarDao {
                 .delete()
 
                 .addOnSuccessListener {
-                    Log.d("deleteLugar", "Lugar eliminado"")
+                    Log.d("deleteLugar", "Lugar eliminado")
                 }
                 .addOnCanceledListener {
                     Log.e("deleteLugar", "Lugar NO eliminado")

@@ -17,44 +17,42 @@
 
         <TextView
             android:id="@+id/tv_nombre"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_width="275dp"
+            android:layout_height="28dp"
             android:text="TextView"
             android:textAlignment="center"
             android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            tools:layout_editor_absoluteX="117dp"
+            tools:layout_editor_absoluteY="24dp" />
 
         <ImageView
             android:id="@+id/imagen"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_width="91dp"
+            android:layout_height="107dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_nombre"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.507"
             tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
         <TextView
             android:id="@+id/tv_correo"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_width="260dp"
+            android:layout_height="29dp"
+            android:layout_marginTop="20dp"
             android:text="TextView"
             android:textAlignment="center"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.634"
             app:layout_constraintStart_toEndOf="@+id/imagen"
             app:layout_constraintTop_toBottomOf="@+id/tv_nombre" />
 
         <TextView
             android:id="@+id/tv_telefono"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="245dp"
+            android:layout_height="33dp"
             android:layout_marginTop="16dp"
             android:text="TextView"
             android:textAlignment="center"
