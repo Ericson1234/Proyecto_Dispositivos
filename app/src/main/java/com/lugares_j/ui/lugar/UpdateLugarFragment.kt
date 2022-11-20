@@ -2,6 +2,7 @@ package com.lugares_j.ui.lugar
 
 import android.app.AlertDialog
 import android.content.Intent
+import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -54,6 +55,18 @@ class UpdateLugarFragment : Fragment() {
         binding.btWhatsapp.setOnClickListener { enviarWhatsapp() }
         binding.btWeb.setOnClickListener { verweb() }
         binding.btLocation.setOnClickListener { verEnMapa() }
+
+        if(args.lugar.ruta_audio?.isNotEmpty()==true) {
+            mediaPlayer = MediaPlayer()
+            mediaPlayer.setDataSource(args.lugar.rutaAudio)
+            mediaPlayer.prepare()
+            binding.btPlay.isEnable = true
+        }else{
+            binding.btPlay.isEnable=false
+
+        }
+        binding.btPlay.setOnClickListener {mediaPlayer.start()}
+
 
         return binding.root
     }
