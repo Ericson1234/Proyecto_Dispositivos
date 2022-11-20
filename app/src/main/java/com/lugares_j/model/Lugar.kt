@@ -15,8 +15,8 @@ data class Lugar(
     val latitud : Double?,
     val longitud : Double?,
     val altura : Double?,
-    val ruta_audio : String?,
-    val ruta_imagen : String?
+    val ruta_Audio : String?,
+    val rutaImagen : String?
 )   :Parcelable {
     constructor () :
                 this("",

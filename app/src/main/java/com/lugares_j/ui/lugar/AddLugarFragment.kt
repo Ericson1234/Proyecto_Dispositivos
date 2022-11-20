@@ -86,8 +86,7 @@ class AddLugarFragment : Fragment() {
             binding.btRotaL,
             binding.btRotaR,
             binding.imagen,
-            tomarFotoActivity
-        )
+            tomarFotoActivity)
 
         return binding.root
     }
@@ -105,7 +104,7 @@ class AddLugarFragment : Fragment() {
             val rutaLocal = Uri.fromFile((archivoLocal))
 
             //Se establece la ruta en la nube de la nota de audio
-            val rutaNube = "lugaresApp/${Firebase.auth.currentUser?.email}"/audios/${ archivoLocal.name }
+            val rutaNube = "lugaresApp/${Firebase.auth.currentUser?.email}/audios/${ archivoLocal.name }"
             //ejemplo "lugaresApp/juan33@gmail.com/audios/20221117190001.mp3"
 
             //Se hace la referencia Real...
@@ -144,7 +143,7 @@ class AddLugarFragment : Fragment() {
             val rutaLocal = Uri.fromFile((archivoLocal))
 
             //Se establece la ruta en la nube de la nota de foto
-            val rutaNube = "lugaresApp/${Firebase.auth.currentUser?.email}"/imagenes/${ archivoLocal.name }
+            val rutaNube = "lugaresApp/${Firebase.auth.currentUser?.email}/imagenes/${ archivoLocal.name }"
             //ejemplo "lugaresApp/juan33@gmail.com/audios/20221117190001.jpg"
 
             //Se hace la referencia Real...
@@ -175,29 +174,24 @@ class AddLugarFragment : Fragment() {
     private fun activaGPS() {
 
         if (requireActivity()
-                .checkSelfPermission(
-                    Manifest.permission.ACCESS_COARSE_LOCATION,
+                .checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) !=
                     PackageManager.PERMISSION_GRANTED
                             && requireActivity()
-                        .checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION,
-                    PackageManager.PERMISSION_GRANTED
-                ) {
-                    //Si estamos aca hay que pedir ubicacion para hacer la
+                        .checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) !=
+                    PackageManager.PERMISSION_GRANTED) {
+                    //Si estamos aca hay que pedir autorizacion para hacer la ubicacion gps
                     requireActivity()
                         .requestPermissions(
-                            arrayOf(
-                                Manifest.permission.ACCESS_COARSE_LOCATION,
-                                Manifest.permission.ACCESS_FINE_LOCATION
-                            ), 105)
-                        )
-
+                            arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION,
+                                Manifest.permission.ACCESS_FINE_LOCATION), 105)
 
                 } else {
 
             //Si se tienen los permisos se busca la ubicacion gps
             val ubicacion: FusedLocationProviderClient =
                 LocationServices.getFusedLocationProviderClient(requireContext())
-            ubicacion.lastLocation.addOnSuccessListener { location: Location? ->
+            ubicacion.lastLocation.addOnSuccessListener {
+                    location: Location? ->
                 if (location != null) {
                     binding.tvLatitud.text = "${location.latitude}"
                     binding.tvLongitud.text = "${location.longitude}"

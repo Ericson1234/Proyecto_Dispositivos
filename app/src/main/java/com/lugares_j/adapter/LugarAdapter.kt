@@ -20,7 +20,7 @@ class LugarAdapter : RecyclerView.Adapter<LugarAdapter.LugarViewHolder>() {
             itemBinding.tvTelefono.text = lugar.telefono
 
             Glide.with(itemBinding.root.context)
-                .load(lugar.ruta_imagen)
+                .load(lugar.rutaImagen)
                 .circleCrop()
                 .into(itemBinding.imagen)
 

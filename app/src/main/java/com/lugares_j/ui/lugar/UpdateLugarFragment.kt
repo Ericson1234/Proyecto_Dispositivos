@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
 import com.lugares_j.R
 import com.lugares_j.databinding.FragmentUpdateLugarBinding
 import com.lugares_j.model.Lugar
@@ -28,6 +29,9 @@ class UpdateLugarFragment : Fragment() {
 
     private var _binding: FragmentUpdateLugarBinding? = null
     private val binding get() = _binding!!
+
+    //Objeto mediaPlayer para escucar audio desde la nube
+    private lateinit var mediaPlayer: MediaPlayer
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -56,17 +60,23 @@ class UpdateLugarFragment : Fragment() {
         binding.btWeb.setOnClickListener { verweb() }
         binding.btLocation.setOnClickListener { verEnMapa() }
 
-        if(args.lugar.ruta_audio?.isNotEmpty()==true) {
+        if(args.lugar.ruta_Audio?.isNotEmpty()==true) {
             mediaPlayer = MediaPlayer()
-            mediaPlayer.setDataSource(args.lugar.rutaAudio)
+            mediaPlayer.setDataSource(args.lugar.ruta_Audio)
             mediaPlayer.prepare()
-            binding.btPlay.isEnable = true
+            binding.btPlay.isEnabled = true
         }else{
-            binding.btPlay.isEnable=false
+            binding.btPlay.isEnabled=false
 
         }
         binding.btPlay.setOnClickListener {mediaPlayer.start()}
 
+        if(args.lugar.rutaImagen?.isNotEmpty()==true) {
+            Glide.with(requireContext())
+                .load(args.lugar.rutaImagen)
+                .fitCenter()
+                .into(binding.imagen)
+        }
 
         return binding.root
     }
@@ -152,8 +162,8 @@ class UpdateLugarFragment : Fragment() {
                 args.lugar.latitud,
                 args.lugar.longitud,
                 args.lugar.altura,
-                args.lugar.ruta_audio,
-                args.lugar.ruta_imagen)
+                args.lugar.ruta_Audio,
+                args.lugar.rutaImagen)
 
             //Se procede a actualizar el nuevo lugar...
             lugarViewModel.saveLugar(lugar)
