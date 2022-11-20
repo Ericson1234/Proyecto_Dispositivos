@@ -83,6 +83,43 @@ class AddLugarFragment : Fragment() {
         binding.msgMensaje.text = getString(R.string.msg_subiendo_imagen)
     }
 
+
+
+    if(requireActivity)
+    .checkSetPermission(android.Manifest.permission.ACCESS_COARSE_LOCATION)
+    PackageManager.PERMISSION_GRANTED &&
+    requireActivity()
+        .checkSetPermission(android.Manifest.permission.ACCESS_FINE_LOCATION)
+    PackageManager.PERMISSION_GRANTED
+    //Si estamos aca hay que pedir ubicacion
+    requireActivity()
+    .requestPermissions(
+    arrayOf(
+    android.Manifest.permission.ACCESS_COARSE_LOCATION,
+    android.Manifest.permission.ACCESS_FINE_LOCATION, 105
+    )
+    )
+
+}else{
+
+    //Si se tienen los permisos se busca la ubicacion gps
+    val ubicacion:FusedLocationProviderClient =
+        LocationServices.getFusedLocationProviderClient(requireContext())
+    ubicacion,lastLocation.addOnSuccessListener {
+        location: Location? ->
+        if(location != null) {
+            binding.tvLatitud.text = "${location.latitude}"
+            binding.tvLongitud.text = "${location.longitude}"
+            binding.tvAltura.text = "${location.altitude}"
+        } else {
+            binding.tvLatitud.text = "0.0"
+            binding.tvLongitud.text = "0.0"
+            binding.tvAltura.text = "0.0"
+        }
+    }
+}
+}
+
     private fun addLugar() {
 
         val nombre = binding.etNombre.text.toString() //Obtiene el texto de lo que el usuario escribio
@@ -90,8 +127,11 @@ class AddLugarFragment : Fragment() {
             val correo = binding.etCorreo.text.toString() //Obtiene el texto de lo que el usuario escribio
             val telefono = binding.etTelefono.text.toString() //Obtiene el texto de lo que el usuario escribio
             val web = binding.etWeb.text.toString() //Obtiene el texto de lo que el usuario escribio
+            val latitud = binding.tvLatitud.text.toString().toDouble()
+            val longitud = binding.tvLongitud.text.toString().toDouble()
+            val altura = binding.tvAltura.text.toString().toDouble()
             val lugar = Lugar("",nombre,correo,telefono,web,
-                0.0,0.0,0.0,"","")
+                latitud,longitud,altura,"","")
 
             //Se procede a registrar el nuevo lugar...
             lugarViewModel.saveLugar(lugar)
