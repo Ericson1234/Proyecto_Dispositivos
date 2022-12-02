@@ -22,7 +22,7 @@
         android:id="@+id/nav_gallery"
         android:name="com.lugares_j.ui.gallery.GalleryFragment"
         android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/libros_disponibles" />
 
     <fragment
         android:id="@+id/nav_slideshow"
@@ -33,7 +33,7 @@
         android:id="@+id/addLugarFragment"
         android:name="com.lugares_j.ui.lugar.AddLugarFragment"
         android:label="@string/bt_add_lugar"
-        tools:layout="@layout/fragment_add_lugar" >
+        tools:layout="@layout/agregar_reserva" >
         <action
             android:id="@+id/action_addLugarFragment_to_nav_lugar"
             app:destination="@id/nav_lugar" />
@@ -42,7 +42,7 @@
         android:id="@+id/updateLugarFragment"
         android:name="com.lugares_j.ui.lugar.UpdateLugarFragment"
         android:label="@string/bt_update_lugar"
-        tools:layout="@layout/fragment_update_lugar" >
+        tools:layout="@layout/modificar_reserva" >
         <action
             android:id="@+id/action_updateLugarFragment_to_nav_lugar"
             app:destination="@id/nav_lugar" />
