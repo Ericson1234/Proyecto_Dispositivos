@@ -5,27 +5,28 @@
     <string name="title_activity_principal">Principal</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_title">Universo Cósmico</string>
+    <string name="nav_header_subtitle">universocosmico@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="menu_lugar">Lugares</string>
+    <string name="menu_libro">Libros</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
 
-    <string name="msg.nombre">Nombre del lugar</string>
-    <string name="msg.correo">Email (lugar@xxxx.xxx)</string>
+    <string name="msg.nombre">Nombre del libro</string>
+    <string name="msg.correo">Email (libro@xxxx.xxx)</string>
     <string name="msg.telefono">Telefono (9999-9999)</string>
+    <string name="msg.categoria">Categoria </string>
     <string name="msg.web">Sitio Web</string>
-    <string name="bt_add_lugar">Agregar Lugar</string>
-    <string name="msg_lugar_added">Lugar agregado</string>
+    <string name="bt_add_libro">Agregar Libro</string>
+    <string name="msg_libro_added">Libro agregado</string>
     <string name="msg_data">Faltan datos</string>
-    <string name="bt_update_lugar">Actualizar Lugar</string>
-    <string name="msg_lugar_updated">Lugar actualizado</string>
-    <string name="bt_delete_lugar">Eliminar Lugar</string>
-    <string name="msg_lugar_deleted">Lugar eliminado</string>
-    <string name="msg_pregunta_delete">¿Esta seguro de eliminar el lugar </string>
+    <string name="bt_update_libro">Actualizar Libro</string>
+    <string name="msg_libro_updated">Libro actualizado</string>
+    <string name="bt_delete_libro">Eliminar Libro</string>
+    <string name="msg_libro_deleted">Libro eliminado</string>
+    <string name="msg_pregunta_delete">¿Esta seguro de eliminar el libro </string>
     <string name="msg_si">Si</string>
     <string name="msg_no">No</string>
 
@@ -42,7 +43,7 @@
     <string name="error">Error</string>
 
     <string name="msgEscucharAudio">Escuchar nota de audio</string>
-    <string name="msg_imagen">Imagen del lugar</string>
+    <string name="msg_imagen">Imagen del libro</string>
     <string name="graba_pausa">Graba o pausa grabación</string>
     <string name="escuchaPlay">Escucha grabación</string>
     <string name="delete_nota">Borra nota de audio</string>
@@ -56,6 +57,6 @@
     <string name="msg_subiendo_audio">Subiendo Nota Audio</string>
     <string name="msg_subiendo_imagen">Subiendo imagen</string>
     <string name="todo">Luego</string>
-    <string name="msg_subiendo_lugar">Subiendo el Lugar</string>
+    <string name="msg_subiendo_lugar">Subiendo el Libro</string>
 
 </resources>

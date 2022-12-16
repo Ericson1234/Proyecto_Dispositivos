@@ -7,12 +7,13 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.lugares_j.databinding.FragmentGalleryBinding
+import com.lugares_j.databinding.FragmentContactoBinding
+
 import com.lugares_j.viewmodel.GalleryViewModel
 
 class GalleryFragment : Fragment() {
 
-    private var _binding: FragmentGalleryBinding? = null
+    private var _binding: FragmentContactoBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -26,10 +27,10 @@ class GalleryFragment : Fragment() {
         val galleryViewModel =
             ViewModelProvider(this).get(GalleryViewModel::class.java)
 
-        _binding = FragmentGalleryBinding.inflate(inflater, container, false)
+        _binding = FragmentContactoBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textGallery
+        val textView: TextView = binding.textView2
         galleryViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }

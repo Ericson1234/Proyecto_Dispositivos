@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10sp"
+    tools:context=".ui.libro.UpdateLibroFragment" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="372dp"
+            android:layout_height="39dp" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="370dp"
+            android:layout_height="40dp"
+            android:text="Contáctenos"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="372dp"
+            android:layout_height="38dp"
+            android:text="WhatsApp: 86148512" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="370dp"
+            android:layout_height="38dp"
+            android:text="Correo: Uvinersocosmico@android.com" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageButton
+                android:id="@+id/bt_email"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:contentDescription="@string/msg_enviar_correo"
+                android:src="@drawable/ic_email" />
+            <ImageButton
+                android:id="@+id/bt_phone"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:contentDescription="@string/msg_phone_call"
+                android:src="@drawable/ic_phone" />
+            <ImageButton
+                android:id="@+id/bt_whatsapp"
+                android:layout_width="0dp"
+                android:layout_height="92dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/msg_whatsapp_send"
+                android:scaleType="fitCenter"
+                android:src="@drawable/whatsapp_logo"
+                tools:ignore="ImageContrastCheck" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_latitud"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center|center_horizontal|center_vertical"
+                android:textAlignment="center"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_longitud"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center|center_horizontal|center_vertical"
+                android:textAlignment="center"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_altura"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center|center_horizontal|center_vertical"
+                android:textAlignment="center"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imagen"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:contentDescription="@string/msg_imagen"
+            android:scaleType="centerInside"
+            tools:ignore="ImageContrastCheck"
+            tools:src="@drawable/contacto" />
+
+    </LinearLayout>
+</ScrollView>

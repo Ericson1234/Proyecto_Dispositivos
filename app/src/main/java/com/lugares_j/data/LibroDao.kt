@@ -1,17 +1,16 @@
 package com.lugares_j.data
 
 import android.util.Log
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreSettings
 import com.google.firebase.ktx.Firebase
-import com.lugares_j.model.Lugar
+import com.lugares_j.model.Libro
 
 
-class LugarDao {
+class LibroDao {
 
     //Varibles usadas para poder generar la estructura en la nube
     private val coleccion1 = "lugaresApp"
@@ -29,55 +28,55 @@ class LugarDao {
     //Las funciones de bajo nivel para hacer un CRUD(Create,Read,Update,Delete)
 
 
-    fun saveLugar(lugar: Lugar){
+    fun saveLibro(libro: Libro){
         //Para definir un documento en la nube...
         val documento : DocumentReference
 
-        if (lugar.id.isEmpty()) { // Si esta vacio... es un nuevo documento...
+        if (libro.id.isEmpty()) { // Si esta vacio... es un nuevo documento...
             documento = firestore
                 .collection(coleccion1)
                 .document(usuario)
                 .collection(coleccion2)
                 .document()
-            lugar.id = documento.id
+            libro.id = documento.id
         } else { //Si el id tiene algo... entonces se va a modificar este documento(lugar)
 
             documento = firestore
                 .collection(coleccion1)
                 .document(usuario)
                 .collection(coleccion2)
-                .document(lugar.id)
+                .document(libro.id)
         }
         //Ahora... se modifica o crea el documento...
-        documento.set(lugar)
+        documento.set(libro)
             .addOnSuccessListener {
-                Log.d("saveLugar", "Lugar creado/actualizado")
+                Log.d("saveLibro", "Libro creado/actualizado")
             }
             .addOnCanceledListener {
-                Log.e("saveLugar", "Lugar NO creado/actualizado")
+                Log.e("saveLibro", "Libro NO creado/actualizado")
             }
     }
-    fun deleteLugar(lugar: Lugar){
+    fun deleteLibro(libro: Libro){
 
         //Se valida si el lugar tiene id... para poder borrarlo
-        if (lugar.id.isNotEmpty()) { // Si no esta vacio... se puede eliminar...
+        if (libro.id.isNotEmpty()) { // Si no esta vacio... se puede eliminar...
             firestore
                 .collection(coleccion1)
                 .document(usuario)
                 .collection(coleccion2)
-                .document(lugar.id)
+                .document(libro.id)
                 .delete()
 
                 .addOnSuccessListener {
-                    Log.d("deleteLugar", "Lugar eliminado")
+                    Log.d("deleteLibro", "Libro eliminado")
                 }
                 .addOnCanceledListener {
-                    Log.e("deleteLugar", "Lugar NO eliminado")
+                    Log.e("deleteLibro", "Libro NO eliminado")
                 }
         }
     }
-    fun getLugares() : MutableLiveData<List<Lugar>> {
-        val listaLugares = MutableLiveData<List<Lugar>>()
+    fun getLibros() : MutableLiveData<List<Libro>> {
+        val listaLibros = MutableLiveData<List<Libro>>()
 
         firestore
             .collection(coleccion1)
@@ -92,18 +91,18 @@ class LugarDao {
 
                 //Si estamos aca... no hubo error...
                 if (instantanea != null) {//Si se pudo recuperar la info...
-                val lista = ArrayList<Lugar>()
+                val lista = ArrayList<Libro>()
                 //Se recorre la instantanea documento por documento... convirtiendolo en lugar y agregandolo a la lista
                 instantanea.documents.forEach {
-                    val lugar = it.toObject(Lugar::class.java)
-                    if (lugar != null) {//Si se pudo convertir el documento en un lugar
-                        lista.add(lugar) //Se agrega el lugar a la lista...
+                    val libro = it.toObject(Libro::class.java)
+                    if (libro != null) {//Si se pudo convertir el documento en un lugar
+                        lista.add(libro) //Se agrega el lugar a la lista...
                 }
             }
-                listaLugares.value = lista
+                listaLibros.value = lista
             }
 }
-        return listaLugares
+        return listaLibros
     }
 }
 

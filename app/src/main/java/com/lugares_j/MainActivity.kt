@@ -28,14 +28,15 @@ class MainActivity : AppCompatActivity() {
         binding.btRegister.setOnClickListener { haceRegistro() }
         binding.btLogin.setOnClickListener { haceLogin() }
 
-        val
+
+
 
     }
 
     private fun haceRegistro() {
         //Recuperamos la informacion que ingreso el usuario...
         val email = binding.etEmail.text.toString()
-        val clave = binding.etClave.text.toString()
+        val clave = binding.etPassword.text.toString()
 
         //Se llama a la funcion para crear un usuario en Firebase (correo/contraseña)
         auth.createUserWithEmailAndPassword(email, clave)
@@ -57,7 +58,7 @@ class MainActivity : AppCompatActivity() {
 
         //Recuperamos la informacion que ingreso el usuario...
         val email = binding.etEmail.text.toString()
-        val clave = binding.etClave.text.toString()
+        val clave = binding.etPassword.text.toString()
 
         //Se llama a la funcion para crear un usuario en Firebase (correo/contraseña)
         auth.signInWithEmailAndPassword(email, clave)

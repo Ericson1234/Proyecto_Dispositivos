@@ -1,23 +1,21 @@
-package com.lugares_j.ui.lugar
+package com.lugares_j.ui.libro
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lugares_j.R
-import com.lugares_j.adapter.LugarAdapter
-import com.lugares_j.databinding.FragmentLugarBinding
-import com.lugares_j.viewmodel.LugarViewModel
+import com.lugares_j.adapter.LibroAdapter
+import com.lugares_j.databinding.FragmentLibroBinding
+import com.lugares_j.viewmodel.LibroViewModel
 
-class LugarFragment : Fragment() {
+class LibroFragment : Fragment() {
 
-    private var _binding: FragmentLugarBinding? = null
+    private var _binding: FragmentLibroBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -25,23 +23,23 @@ class LugarFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val lugarViewModel =
-            ViewModelProvider(this)[LugarViewModel::class.java]
+        val libroViewModel =
+            ViewModelProvider(this)[LibroViewModel::class.java]
 
-        _binding = FragmentLugarBinding.inflate(inflater, container, false)
+        _binding = FragmentLibroBinding.inflate(inflater, container, false)
 
-        binding.addLugarFabButton.setOnClickListener {
-            findNavController().navigate(R.id.action_nav_lugar_to_addLugarFragment)
+        binding.addLibroFabButton.setOnClickListener {
+            findNavController().navigate(R.id.action_nav_libro_to_addLibroFragment)
         }
 
         //Se genera el recicler view para ver la informacion
-        val lugarAdapter = LugarAdapter()
+        val libroAdapter = LibroAdapter()
         val reciclador = binding.reciclador
-        reciclador.adapter = lugarAdapter
+        reciclador.adapter = libroAdapter
         reciclador.layoutManager = LinearLayoutManager(requireContext())
 
-        lugarViewModel.getLugares.observe(viewLifecycleOwner){
-            lugares -> lugarAdapter.setListaLugares(lugares)
+        libroViewModel.getLibros.observe(viewLifecycleOwner){
+            libros -> libroAdapter.setListaLibros(libros)
         }
 
         return binding.root

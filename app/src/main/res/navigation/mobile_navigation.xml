@@ -3,19 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_lugar">
+    app:startDestination="@+id/nav_libro">
 
     <fragment
-        android:id="@+id/nav_lugar"
-        android:name="com.lugares_j.ui.lugar.LugarFragment"
-        android:label="@string/menu_lugar"
-        tools:layout="@layout/fragment_lugar" >
+        android:id="@+id/nav_libro"
+        android:name="com.lugares_j.ui.libro.LibroFragment"
+        android:label="@string/menu_libro"
+        tools:layout="@layout/fragment_libro" >
         <action
-            android:id="@+id/action_nav_lugar_to_addLugarFragment"
-            app:destination="@id/addLugarFragment" />
+            android:id="@+id/action_nav_libro_to_addLibroFragment"
+            app:destination="@id/addLibroFragment" />
         <action
-            android:id="@+id/action_nav_lugar_to_updateLugarFragment"
-            app:destination="@id/updateLugarFragment" />
+            android:id="@+id/action_nav_libro_to_updateLibroFragment"
+            app:destination="@id/updateLibroFragment" />
     </fragment>
 
     <fragment
@@ -30,24 +30,24 @@
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
     <fragment
-        android:id="@+id/addLugarFragment"
-        android:name="com.lugares_j.ui.lugar.AddLugarFragment"
-        android:label="@string/bt_add_lugar"
-        tools:layout="@layout/agregar_reserva" >
+        android:id="@+id/addLibroFragment"
+        android:name="com.lugares_j.ui.libro.AddLibroFragment"
+        android:label="@string/bt_add_libro"
+        tools:layout="@layout/fragment_add_libro" >
         <action
-            android:id="@+id/action_addLugarFragment_to_nav_lugar"
-            app:destination="@id/nav_lugar" />
+            android:id="@+id/action_addLibroFragment_to_nav_libro"
+            app:destination="@id/nav_libro" />
     </fragment>
     <fragment
-        android:id="@+id/updateLugarFragment"
-        android:name="com.lugares_j.ui.lugar.UpdateLugarFragment"
-        android:label="@string/bt_update_lugar"
-        tools:layout="@layout/modificar_reserva" >
+        android:id="@+id/updateLibroFragment"
+        android:name="com.lugares_j.ui.libro.UpdateLibroFragment"
+        android:label="Actualizar Libro"
+        tools:layout="@layout/fragment_update_libro" >
         <action
-            android:id="@+id/action_updateLugarFragment_to_nav_lugar"
-            app:destination="@id/nav_lugar" />
+            android:id="@+id/action_updateLibroFragment_to_nav_libro"
+            app:destination="@id/nav_libro" />
         <argument
-            android:name="lugar"
-            app:argType="com.lugares_j.model.Lugar" />
+            android:name="libro"
+            app:argType="com.lugares_j.model.Libro" />
     </fragment>
 </navigation>

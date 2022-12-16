@@ -5,22 +5,18 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 
-data class Lugar(
+data class Libro(
 
     var id:String,
     val nombre : String,
+    val categoria : String,
     val correo : String?, // ? el correo puede ser nulo en la base de datos
     val telefono : String?,
-    val web : String?,
-    val latitud : Double?,
-    val longitud : Double?,
-    val altura : Double?,
-    val ruta_Audio : String?,
-    val rutaImagen : String?
+
 )   :Parcelable {
     constructor () :
                 this("",
                     "",
                     "",
-                    "","",0.0,0.0,0.0,"","")
+                    "","")
 }

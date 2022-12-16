@@ -5,7 +5,6 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -39,7 +38,7 @@ class Principal : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_lugar, R.id.nav_gallery, R.id.nav_slideshow
+                R.id.nav_libro, R.id.nav_gallery, R.id.nav_slideshow
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -60,7 +59,7 @@ class Principal : AppCompatActivity() {
             Glide.with(this)
                 .load(fotoUrl)
                 .circleCrop()
-                .into(foto)
+
         }
     }
 

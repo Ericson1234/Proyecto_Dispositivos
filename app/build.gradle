@@ -19,7 +19,7 @@ android {
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.lugares_j"
+        applicationId 'com.lugares_j'
         minSdk 27
         targetSdk 33
         versionCode 1
@@ -41,6 +41,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildToolsVersion '33.0.0'
 }
 
 dependencies {
